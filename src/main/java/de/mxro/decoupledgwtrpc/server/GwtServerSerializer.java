@@ -45,6 +45,8 @@ public class GwtServerSerializer {
 		}
 	}
 
+	
+	
 	public String serializeObjectForClient(Object obj) {
 		try {
 			
