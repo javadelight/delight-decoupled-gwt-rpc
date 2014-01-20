@@ -2,9 +2,12 @@ package de.mxro.decoupledgwtrpc.server;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.Serializable;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.server.rpc.SerializationPolicy;
 import com.google.gwt.user.server.rpc.SerializationPolicyLoader;
 
@@ -37,6 +40,14 @@ public class GwtServerSerializerUtils {
 			}
 		}
 		return policyFile;
+	}
+	
+	public static Method getServiceMethod(Class<? extends RemoteService> service, String methodName) {
+		try {
+			return service.getDeclaredMethod(methodName, Serializable.class);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 	
 }
