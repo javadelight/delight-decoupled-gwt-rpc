@@ -34,12 +34,12 @@ public class GwtClientSerializer {
 		}
 	}
 
-	public GwtClientSerializer(Class<? extends RemoteService> baseService) {
+	public GwtClientSerializer() {
 		super();
 		this.clientSerializer = new ServerStorageRPCSerializerImpl();
 	}
 
-	public GwtClientSerializer(Class<? extends RemoteService> baseService,
+	public GwtClientSerializer(
 			ServerStorageRPCSerializerImpl serializer) {
 		super();
 		this.clientSerializer = serializer;
