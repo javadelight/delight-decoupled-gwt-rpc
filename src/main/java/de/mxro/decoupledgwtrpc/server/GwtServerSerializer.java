@@ -1,6 +1,9 @@
 package de.mxro.decoupledgwtrpc.server;
 
+import java.lang.reflect.Method;
+
 import com.google.gwt.user.client.rpc.impl.AbstractSerializationStream;
+import com.google.gwt.user.server.rpc.RPC;
 import com.google.gwt.user.server.rpc.SerializationPolicy;
 import com.google.gwt.user.server.rpc.SerializationPolicyProvider;
 import com.google.gwt.user.server.rpc.impl.ServerSerializationStreamReader;
@@ -66,8 +69,9 @@ public class GwtServerSerializer {
 	 * @param obj
 	 * @return
 	 */
-	public String serializeMessageForClient(Object obj) {
+	public String serializeSuccessMessageForClient(Method service, Object obj) {
 		
+		RPC.encodeResponseForSuccess(serviceMethod, obj, policy);
 	}
 	
 	public GwtServerSerializer(SerializationPolicy policy) {
