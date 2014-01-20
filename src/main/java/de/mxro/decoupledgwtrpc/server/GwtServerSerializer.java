@@ -42,7 +42,7 @@ public class GwtServerSerializer {
 		}
 	}
 
-	public String serializeForClient(Object obj) {
+	public String serializeObjectForClient(Object obj) {
 		try {
 			
 			ServerSerializationStreamWriter stream = new ServerSerializationStreamWriter(
@@ -60,6 +60,16 @@ public class GwtServerSerializer {
 
 	}
 
+	/**
+	 * Serializes an object for a GWT client as part of an RPC message.
+	 * 
+	 * @param obj
+	 * @return
+	 */
+	public String serializeMessageForClient(Object obj) {
+		
+	}
+	
 	public GwtServerSerializer(SerializationPolicy policy) {
 		super();
 		this.policy = policy;
