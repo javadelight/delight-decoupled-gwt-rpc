@@ -3,6 +3,8 @@
 <!-- Only Dependency 27.11.2010 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<artifactId>DecoupledGwtRPC</artifactId>
 	<groupId>de.mxro.decoupledgwtrpc</groupId>
 	<version>0.0.2-SNAPSHOT</version>
 	<name>${project.artifactId}</name>
@@ -344,5 +346,5 @@
 
 
 
-	<artifactId>DecoupledGwtRPC</artifactId>
+	
 </project>
