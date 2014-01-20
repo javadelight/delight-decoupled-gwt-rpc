@@ -6,10 +6,13 @@ import com.google.gwt.core.shared.GWT;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.SerializationStreamFactory;
 import com.google.gwt.user.client.rpc.SerializationStreamWriter;
+import com.seanchenxi.gwt.storage.client.serializer.ServerStorageRPCSerializerImpl;
 
 public class GwtClientSerializer {
 
 	private final Class<? extends RemoteService> baseService;
+	private final ServerStorageRPCSerializerImpl clientSerializer;
+	
 	
 	public String serializeForServer(Serializable serializable) {
 		try {
@@ -24,13 +27,16 @@ public class GwtClientSerializer {
 		}
 	}
 
-	public String serializeForClient(Serializable serializable) {
-		
+	public String serializeForClient(Serializable obj) {
+		this.clientSerializer.serialize(Serializable.class, obj);
 	}
+	
+	
 	
 	public GwtClientSerializer(Class<? extends RemoteService> baseService) {
 		super();
 		this.baseService = baseService;
+		this.clientSerializer = new ServerStorageRPCSerializerImpl();
 	}
 
 	
