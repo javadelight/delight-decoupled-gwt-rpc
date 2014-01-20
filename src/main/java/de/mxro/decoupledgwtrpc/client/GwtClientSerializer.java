@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.user.client.rpc.RemoteService;
+import com.google.gwt.user.client.rpc.SerializationException;
 import com.google.gwt.user.client.rpc.SerializationStreamFactory;
 import com.google.gwt.user.client.rpc.SerializationStreamWriter;
 import com.seanchenxi.gwt.storage.client.serializer.ServerStorageRPCSerializerImpl;
@@ -28,7 +29,11 @@ public class GwtClientSerializer {
 	}
 
 	public String serializeForClient(Serializable obj) {
-		this.clientSerializer.serialize(Serializable.class, obj);
+		try {
+			return this.clientSerializer.serialize(Serializable.class, obj);
+		} catch (SerializationException e) {
+			throw new RuntimeException(e);
+		}
 	}
 	
 	
