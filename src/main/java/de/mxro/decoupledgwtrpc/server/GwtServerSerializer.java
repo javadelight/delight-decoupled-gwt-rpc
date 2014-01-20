@@ -2,6 +2,7 @@ package de.mxro.decoupledgwtrpc.server;
 
 import java.lang.reflect.Method;
 
+import com.google.gwt.user.client.rpc.SerializationException;
 import com.google.gwt.user.client.rpc.impl.AbstractSerializationStream;
 import com.google.gwt.user.server.rpc.RPC;
 import com.google.gwt.user.server.rpc.SerializationPolicy;
@@ -69,9 +70,12 @@ public class GwtServerSerializer {
 	 * @param obj
 	 * @return
 	 */
-	public String serializeSuccessMessageForClient(Method service, Object obj) {
-		
-		RPC.encodeResponseForSuccess(serviceMethod, obj, policy);
+	public String serializeSuccessMessageForClient(Method serviceMethod, Object obj) {
+		try {
+			return RPC.encodeResponseForSuccess(serviceMethod, obj, policy);
+		} catch (SerializationException e) {
+			throw new RuntimeException(e);
+		}
 	}
 	
 	public GwtServerSerializer(SerializationPolicy policy) {
