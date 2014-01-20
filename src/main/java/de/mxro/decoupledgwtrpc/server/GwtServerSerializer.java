@@ -70,7 +70,7 @@ public class GwtServerSerializer {
 	 * @param obj
 	 * @return
 	 */
-	public String serializeSuccessMessageForClient(Method serviceMethod, Object obj) {
+	public String createSuccessMessageForClient(Method serviceMethod, Object obj) {
 		try {
 			return RPC.encodeResponseForSuccess(serviceMethod, obj, policy);
 		} catch (SerializationException e) {
