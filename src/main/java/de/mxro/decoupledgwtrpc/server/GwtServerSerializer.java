@@ -15,14 +15,13 @@ public class GwtServerSerializer {
 	private final SerializationPolicy policy;
 	
 	/**
-	 * Needs message in format as described here
-	 * https://docs.google.com/document/d/1eG0YocsYYbNAtivkLtcaiEE5IOF5u4LUol8-LL0TIKU/edit
+	 * Deserializes objects serialized with the GwtClientMessageSerializer
 	 * 
 	 * @param data
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public <T> T deserializeMessageFromClient(String data) {
+	public <T> T deserializeObjectFromClient(String data) {
 		try {
 
 			String content = data;
