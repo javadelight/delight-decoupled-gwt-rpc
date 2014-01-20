@@ -4,11 +4,7 @@
 	
 	<inherits name="com.seanchenxi.gwt.storage.Storage" />
 	
-	<!-- <inherits name="com.googlecode.gwt.crypto.Crypto"/> 
 	
-	<inherits name='com.appjangle.js.deployments.local.Local' />
-	
-	<set-property name="export" value="yes"/> -->
 	
 	<entry-point class='de.mxro.decoupledgwtrpc.client.DummyEntryPoint' />
 	<source path=''></source>
