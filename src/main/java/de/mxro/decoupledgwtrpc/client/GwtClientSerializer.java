@@ -11,21 +11,9 @@ import com.seanchenxi.gwt.storage.client.serializer.ServerStorageRPCSerializerIm
 
 public class GwtClientSerializer {
 
-	private final Class<? extends RemoteService> baseService;
 	private final ServerStorageRPCSerializerImpl clientSerializer;
 
-	public String serializeForServer(Serializable serializable) {
-		try {
-			SerializationStreamWriter writer = ((SerializationStreamFactory) GWT
-					.create(baseService)).createStreamWriter();
-
-			writer.writeObject(serializable);
-
-			return writer.toString();
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-	}
+	
 
 	public String serializeForClient(Serializable obj) {
 		try {
@@ -51,14 +39,12 @@ public class GwtClientSerializer {
 
 	public GwtClientSerializer(Class<? extends RemoteService> baseService) {
 		super();
-		this.baseService = baseService;
 		this.clientSerializer = new ServerStorageRPCSerializerImpl();
 	}
 
 	public GwtClientSerializer(Class<? extends RemoteService> baseService,
 			ServerStorageRPCSerializerImpl serializer) {
 		super();
-		this.baseService = baseService;
 		this.clientSerializer = serializer;
 	}
 
