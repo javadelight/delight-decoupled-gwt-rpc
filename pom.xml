@@ -20,7 +20,7 @@
 		</module.exportedContents>
 		<!-- exported packages from embedded dependencies -->
 		<module.exportedPackages>
-			com.seanchenxi.gwt*,
+			de.mxro.decoupledgwtrpc.*,
 			!*
 		</module.exportedPackages>
 		<module.embeddedDependencies>!*
