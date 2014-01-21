@@ -2,6 +2,8 @@ package de.mxro.decoupledgwtrpc.server;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -13,17 +15,26 @@ import com.google.gwt.user.server.rpc.SerializationPolicyLoader;
 
 public class GwtServerSerializerUtils {
 
-	public static SerializationPolicy getSerializationPolicy(File path) {
+	public static SerializationPolicy getSerializationPolicy(InputStream stream) {
 		List<ClassNotFoundException> classNotFoundExceptions = new ArrayList<ClassNotFoundException>();
-
-		File policyFile = getSerializationPolicyFile(path);
-
 		SerializationPolicy policy;
 		try {
 			policy = SerializationPolicyLoader.loadFromStream(
-					new FileInputStream(policyFile), classNotFoundExceptions);
+					stream, classNotFoundExceptions);
 			return policy;
 		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public static SerializationPolicy getSerializationPolicy(File path) {
+		
+
+		File policyFile = getSerializationPolicyFile(path);
+
+		try {
+			return getSerializationPolicy(new FileInputStream(policyFile));
+		} catch (FileNotFoundException e) {
 			throw new RuntimeException(e);
 		}
 
