@@ -26,7 +26,7 @@ public class GwtClientSerializer {
 	 * @param data
 	 * @return
 	 */
-	public String deserialize(String data) {
+	public Object deserialize(String data) {
 		try {
 			return this.clientSerializer.deserialize(Serializable.class, data);
 		} catch (SerializationException e) {
