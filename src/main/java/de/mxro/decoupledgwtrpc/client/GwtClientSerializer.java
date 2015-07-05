@@ -2,7 +2,6 @@ package de.mxro.decoupledgwtrpc.client;
 
 import java.io.Serializable;
 
-import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.SerializationException;
 import com.seanchenxi.gwt.storage.client.serializer.ServerStorageRPCSerializerImpl;
 
