@@ -1,7 +1,5 @@
 package de.mxro.decoupledgwtrpc.client;
 
-import delight.gwt.console.Console;
-
 import java.io.Serializable;
 
 import com.google.gwt.user.client.rpc.SerializationException;
@@ -31,9 +29,9 @@ public class GwtClientSerializer {
         }
         try {
             return this.clientSerializer.deserialize(Serializable.class, data);
-        } catch (final Throwable t) {
-            Console.log("Got exception: " + t.getMessage());
-            throw new RuntimeException(t);
+        } catch (final SerializationException e) {
+
+            throw new RuntimeException(e);
         }
     }
 
