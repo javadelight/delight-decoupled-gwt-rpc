@@ -9,6 +9,7 @@ import com.google.gwt.user.client.rpc.SerializationException;
 import com.google.gwt.user.client.rpc.impl.ClientSerializationStreamReader;
 import com.google.gwt.user.client.rpc.impl.Serializer;
 import com.seanchenxi.gwt.storage.client.serializer.ServerStorageRPCSerializerImpl;
+import com.seanchenxi.gwt.storage.client.serializer.StorageTypeSerializer;
 
 public class GwtClientSerializer {
 
@@ -22,7 +23,7 @@ public class GwtClientSerializer {
         }
     }
 
-    private final static Serializer TYPE_SERIALIZER = GWT.create(Serializer.class);
+    private final static Serializer TYPE_SERIALIZER = GWT.create(StorageTypeSerializer.class);
 
     /**
      * Does not accept string serialized for the server.
