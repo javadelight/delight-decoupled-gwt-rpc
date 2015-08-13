@@ -4,7 +4,7 @@
 	
 	<inherits name="com.seanchenxi.gwt.storage.Storage" />
 	
-	
+	<inherits name="delight.gwt.console.Module" />
 	
 	<entry-point class='de.mxro.decoupledgwtrpc.client.DummyEntryPoint' />
 	<source path=''></source>
