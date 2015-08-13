@@ -35,6 +35,7 @@ public class GwtClientSerializer {
         if (data == null) {
             throw new NullPointerException("String to be deserialized must not be null.");
         }
+        Console.log(data);
         if (data.equals("")) {
             throw new IllegalArgumentException("Data must not be empty string");
         }
