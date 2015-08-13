@@ -7,41 +7,41 @@ import com.seanchenxi.gwt.storage.client.serializer.ServerStorageRPCSerializerIm
 
 public class GwtClientSerializer {
 
-	private final ServerStorageRPCSerializerImpl clientSerializer;
+    private final ServerStorageRPCSerializerImpl clientSerializer;
 
-	
+    public String serializeForClient(final Serializable obj) {
+        try {
+            return this.clientSerializer.serialize(Serializable.class, obj);
+        } catch (final SerializationException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	public String serializeForClient(Serializable obj) {
-		try {
-			return this.clientSerializer.serialize(Serializable.class, obj);
-		} catch (SerializationException e) {
-			throw new RuntimeException(e);
-		}
-	}
+    /**
+     * Does not accept string serialized for the server.
+     * 
+     * @param data
+     * @return
+     */
+    public Object deserialize(final String data) {
+        if (data == null) {
+            throw new NullPointerException("String to be deserialized must not be null.");
+        }
+        try {
+            return this.clientSerializer.deserialize(Serializable.class, data);
+        } catch (final SerializationException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	/**
-	 * Does not accept string serialized for the server.
-	 * 
-	 * @param data
-	 * @return
-	 */
-	public Object deserialize(String data) {
-		try {
-			return this.clientSerializer.deserialize(Serializable.class, data);
-		} catch (SerializationException e) {
-			throw new RuntimeException(e);
-		}
-	}
+    public GwtClientSerializer() {
+        super();
+        this.clientSerializer = new ServerStorageRPCSerializerImpl();
+    }
 
-	public GwtClientSerializer() {
-		super();
-		this.clientSerializer = new ServerStorageRPCSerializerImpl();
-	}
-
-	public GwtClientSerializer(
-			ServerStorageRPCSerializerImpl serializer) {
-		super();
-		this.clientSerializer = serializer;
-	}
+    public GwtClientSerializer(final ServerStorageRPCSerializerImpl serializer) {
+        super();
+        this.clientSerializer = serializer;
+    }
 
 }
