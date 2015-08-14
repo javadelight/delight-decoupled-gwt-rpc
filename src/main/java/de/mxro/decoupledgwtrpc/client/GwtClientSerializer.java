@@ -2,9 +2,7 @@ package de.mxro.decoupledgwtrpc.client;
 
 import java.io.Serializable;
 
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.SerializationException;
-import com.google.gwt.user.client.rpc.impl.Serializer;
 import com.seanchenxi.gwt.storage.client.serializer.ServerStorageRPCSerializerImpl;
 
 public class GwtClientSerializer {
@@ -18,8 +16,6 @@ public class GwtClientSerializer {
             throw new RuntimeException(e);
         }
     }
-
-    private final static Serializer TYPE_SERIALIZER = GWT.create(Serializer.class);
 
     /**
      * Does not accept string serialized for the server.
