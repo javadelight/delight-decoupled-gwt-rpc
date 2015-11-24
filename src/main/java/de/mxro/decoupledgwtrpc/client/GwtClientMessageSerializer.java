@@ -12,18 +12,19 @@ public class GwtClientMessageSerializer {
     Object serviceInstance;
 
     public String serializeForServer(final Serializable serializable) {
-		try {
-			SerializationStreamWriter writer = ((SerializationStreamFactory) serviceInstance).createStreamWriter();
-			    
-			Console.log('serialize '+serializable.getClass());
-			
-			writer.writeObject(serializable);
+        try {
+            final SerializationStreamWriter writer = ((SerializationStreamFactory) serviceInstance)
+                    .createStreamWriter();
 
-			return writer.toString();
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-	}
+            Console.log("serialize " + serializable.getClass());
+
+            writer.writeObject(serializable);
+
+            return writer.toString();
+        } catch (final Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     /**
      * An instance of the RemoteService for which messages are to be generated.
