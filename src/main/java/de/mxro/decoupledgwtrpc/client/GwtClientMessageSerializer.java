@@ -1,9 +1,6 @@
 package de.mxro.decoupledgwtrpc.client;
 
-import delight.gwt.console.Console;
-
 import java.io.Serializable;
-import java.util.ArrayList;
 
 import com.google.gwt.user.client.rpc.SerializationStreamFactory;
 import com.google.gwt.user.client.rpc.SerializationStreamWriter;
@@ -17,17 +14,17 @@ public class GwtClientMessageSerializer {
             final SerializationStreamWriter writer = ((SerializationStreamFactory) serviceInstance)
                     .createStreamWriter();
 
-            Console.log("serialize " + serializable.getClass());
-
-            if (serializable instanceof ArrayList) {
-
-                final ArrayList list = (ArrayList) serializable;
-                for (final Object o : list) {
-                    Console.log(" -> " + o.getClass());
-                    Console.log("     -> " + o.toString());
-
-                }
-            }
+            /*
+             * Console.log("serialize " + serializable.getClass());
+             * 
+             * if (serializable instanceof ArrayList) {
+             * 
+             * final ArrayList list = (ArrayList) serializable; for (final
+             * Object o : list) { Console.log(" -> " + o.getClass());
+             * Console.log("     -> " + o.toString());
+             * 
+             * } }
+             */
 
             writer.writeObject(serializable);
 
