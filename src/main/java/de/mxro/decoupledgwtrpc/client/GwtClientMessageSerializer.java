@@ -25,6 +25,7 @@ public class GwtClientMessageSerializer {
                 for (final Object o : list) {
                     Console.log(" -> " + o.getClass());
                     Console.log("     -> " + o.toString());
+
                 }
             }
 
