@@ -34,7 +34,7 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>de.mxro.thrd.gwtstorage11</groupId>
+			<groupId>org.stellardb</groupId>
 			<artifactId>thrdGwtStorage11</artifactId>
 			<version>[0.0.1,)</version>
 		</dependency>
