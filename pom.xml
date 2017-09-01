@@ -36,7 +36,7 @@
 		<dependency>
 			<groupId>org.stellardb</groupId>
 			<artifactId>thrdGwtStorage11</artifactId>
-			<version>[0.0.1,)</version>
+			<version>1.0.4-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
