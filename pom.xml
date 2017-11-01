@@ -12,7 +12,7 @@
 	</description>
 	<properties>
 
-		<gwtversion>2.5.1</gwtversion>
+		<gwtVersion>2.8.2</gwtVersion>
 		<module.importedPackages>
 			*
 		</module.importedPackages>
@@ -48,14 +48,14 @@
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-user</artifactId>
-			<version>${gwtversion}</version>
+			<version>${gwtVersion}</version>
 			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-dev</artifactId>
-			<version>${gwtversion}</version>
+			<version>${gwtVersion}</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -81,7 +81,7 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>gwt-maven-plugin</artifactId>
 
-				<version>${gwtversion}</version>
+				<version>${gwtVersion}</version>
 				<configuration>
 					<runTarget>TestSerialization.html</runTarget>
 					<draftCompile>true</draftCompile>

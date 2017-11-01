@@ -5,10 +5,12 @@ import java.io.Serializable;
 import com.google.gwt.user.client.rpc.SerializationException;
 import com.seanchenxi.gwt.storage.client.serializer.ServerStorageRPCSerializerImpl;
 
+
 public class GwtClientSerializer {
 
     private final ServerStorageRPCSerializerImpl clientSerializer;
 
+    
     public String serializeForClient(final Serializable obj) {
         try {
             return this.clientSerializer.serialize(Serializable.class, obj);
@@ -30,7 +32,7 @@ public class GwtClientSerializer {
         try {
             return this.clientSerializer.deserialize(Serializable.class, data);
         } catch (final SerializationException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException(e);	
         }
     }
 
